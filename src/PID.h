@@ -1,6 +1,10 @@
 #ifndef PID_H
 #define PID_H
 
+#include <vector>
+
+//using namespace std;
+
 class PID {
 public:
   /*
@@ -17,9 +21,14 @@ public:
   double Ki;
   double Kd;
   
-  // Memory for previous CTE needed for calculation of derivative term
-  double prevCTE;
+  // Memory for previous CTEs needed for calculation of derivative term and for tuning
+  std::vector<double> prevCTE;
+  int stepCountForAutoTune;
+  int step;
+  char paramToTune;
+  float tuningFactor;
   double sumOfCTEs;
+
 
   /*
   * Constructor
@@ -45,6 +54,9 @@ public:
   * Calculate the total PID error.
   */
   double TotalError();
+  
+  // Function to auto-tune the parameters of the PID controller
+  void AutoTune();
 };
 
 #endif /* PID_H */
