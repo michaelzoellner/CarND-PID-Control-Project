@@ -16,6 +16,10 @@ public:
   double Kp;
   double Ki;
   double Kd;
+  
+  // Memory for previous CTE needed for calculation of derivative term
+  double prevCTE;
+  double sumOfCTEs;
 
   /*
   * Constructor
