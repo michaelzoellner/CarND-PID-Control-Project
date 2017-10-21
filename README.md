@@ -119,9 +119,9 @@ swinging.
 
 After looking for a basic set of hyperparameters Kp, Ki and Kd by hand, I decided to 
 let the computer fine-tune the parameters on its own. For one of the parameters at 
-a time, it will try increasing and decreasing by a little bit. The result are three 
-values for the mean squared error (original value, increased, decreased). These three
+a time, it will try increasing and decreasing by a little bit. The results are three 
+values for the mean squared error (gained for original parameter value, increased and decreased parameter). These three
 values define a parabola, where the minimum is taken for the new value of the parameter.
 
 So, when I say, that my PID is driving the car around the track right now, it is not 
-only driving, but actually getting better at it at the same time....
+only driving, but actually getting better at it at the same time...
