@@ -96,3 +96,32 @@ still be compilable with cmake and make./
 ## How to write a README
 A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
 
+## My way
+
+As I'm writing this, my PID controller is driving my car around the track. Actually,
+there are two PID controllers. The first and mandatory PID is steering the vehicle, 
+while the other is controlling the throttle.
+
+The output of a PID controller is derived from three terms. The proportional term 
+is calculated by multiplying the current error with a scalar number. For some 
+applications, having just a P controller is sufficient. However such a controller 
+will not eliminate the entire error and might swing and be unstable in some 
++applications.
+
+The second "I" term of the PID, integrates the error over time and creates an output
+that is proportional to this integral. By doing so, the I term is capable of eliminating
+any residual error of a P controller. However it will create overshooting by its nature 
+and can also cause unstable swinging.
+
+The third "D" term is calculated by multiplying the derivative/gradient of the error 
+with a scalar value. This part of the PID controller can prevent overshooting and 
+swinging.
+
+After looking for a basic set of hyperparameters Kp, Ki and Kd by hand, I decided to 
+let the computer fine-tune the parameters on its own. For one of the parameters at 
+a time, it will try increasing and decreasing by a little bit. The result are three 
+values for the mean squared error (original value, increased, decreased). These three
+values define a parabola, where the minimum is taken for the new value of the parameter.
+
+So, when I say, that my PID is driving the car around the track right now, it is not 
+only driving, but actually getting better at it at the same time....
